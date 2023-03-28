@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" >
+ <head>
+  <meta charset="UTF-8">
+  <title>Javascript Table Filter</title>
+  <link href="css/stylesheet.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  
+  <style>
+  body {
+    font-family: 'Lato', sans-serif;
+    margin-top: 25px;
+}
+h1{
+    font-size: 35px;
+    font-weight: 900;
+}
+input {
+    width: 250px;
+    height: 40px;
+    float: right;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #212121;
+}
+table {
+    margin-top: 75px;
+}
+tr:nth-of-type(odd) {
+    background: #efebe7;
+}
+tr:nth-of-type(even) {
+    background: #2ebd40;
+}
+thead {
+    background: #2ac70e;
+}
+  </style>
+ </head>
+<body>
+  <section class="container">
+  <h1>For Table Filter Used CSS & JavaScript</h2>
+   <input type="search" class="lighter-table-filter" data-table="table-info" placeholder="Filter/Search Here">
+<table class="table-info table">
+    <thead>
+        <tr>
+        <th>Roll No</th>
+        <th>Candidate Name</th>
+        <th>Email</th>
+        <th>Fees Dues</th>
+        <th>Remaing Days</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1901</td>
+        <td>John</td>
+        <td>john04@gmail.com</td>
+        <td>45000</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td>1902</td>
+        <td>Kayamat</td>
+        <td>kam06@gmail.com</td>
+        <td>46700</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>1903</td>
+        <td>Yash Kumar</td>
+        <td>yashkum@gmail.com</td>
+        <td>34000</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>1904</td>
+        <td>Charlies</td>
+        <td>Charlies@gmail.com</td>
+        <td>22000</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>1905</td>
+        <td>Aman Dhawan</td>
+        <td>amandhawan@gmail.com</td>
+        <td>66000</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>1906</td>
+        <td>Kuldeep senger</td>
+        <td>senger09@gmail.com</td>
+        <td>87000</td>
+        <td>33</td>
+    </tr>
+    <tr>
+        <td>1907</td>
+        <td>Shyam singh</td>
+        <td>shyma06singh@gmail.com</td>
+        <td>11000</td>
+        <td>41</td>
+    </tr>
+    <tr>
+        <td>1908</td>
+        <td>Hema Shankar</td>
+        <td>shankarhema@gmail.com</td>
+        <td>57000</td>
+        <td>32</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+ <script>
+ (function(document) {
+  'use strict';
+ 
+  var TableFilter = (function(Arr) {
+ 
+    var _input;
+ 
+    function _onInputEvent(e) {
+    _input = e.target;
+    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+    Arr.forEach.call(tables, function(table) {
+    Arr.forEach.call(table.tBodies, function(tbody) {
+    Arr.forEach.call(tbody.rows, _filter);
+    });
+    });
+    }
+ 
+    function _filter(row) {
+    var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+ 
+    return {
+    init: function() {
+    var inputs = document.getElementsByClassName('lighter-table-filter');
+    Arr.forEach.call(inputs, function(input) {
+    input.oninput = _onInputEvent;
+    });
+    }
+    };
+  })(Array.prototype);
+ 
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+    TableFilter.init();
+    }
+  });
+ 
+})(document);
+</script>
+ </body>
+</html>

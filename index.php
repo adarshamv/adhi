@@ -12,34 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-        <nav> 
-            <a href="index.php">
-            <div class="logo">
-                <img src="assets/logo.jfif"  alt="">
-            </div>
-            </a>
-            <button type="button" class="btn-hamburger" data-action="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.php">Home</a></li>
-                <li class="nav-item"><a href="staff.php">Faculty</a></li>
-                <li class="nav-item"><a href="#">Work</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" data-action="dropdown-toggle">Login</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="admin_login.php">Admin_Login</a>
-                        <a class="dropdown-item" href="emp_login.php">EMP_Login</a>
-    
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    
+       
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
  
